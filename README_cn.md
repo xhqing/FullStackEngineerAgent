@@ -1,0 +1,51 @@
+<div align="center">
+  <img src="assets/logo.svg" alt="FullStackEngineerAgent" width="640">
+</div>
+
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg)](VERSION)
+[![Type](https://img.shields.io/badge/Type-AI%20Agent-FF1493.svg)](#)
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/FullStackEngineerAgent.json" alt="Visits/day" />
+
+</div>
+
+# FullStackEngineerAgent
+
+> 🌍 **Atlas（阿特拉斯）** — 全栈开发工程师。肩扛整条技术栈的巨人：从面向用户的前端到服务端的后端，端到端全部负责。
+
+[English](README.md)
+
+FullStackEngineerAgent 负责**横跨整个技术栈的全栈开发**：前端界面（Web / TUI / VSCode 扩展）、后端服务（API / 数据库 / 系统架构）、以及贯通两者的工程化（构建 / 发布 / 工具链）。其他 agent 各守一层，Atlas 一人扛起全部。
+
+---
+
+## Atlas 是谁？
+
+本智能体拟人化为 **Atlas（阿特拉斯）**——神话中肩扛苍穹的巨人。名字与角色相合：全栈工程师肩扛整个技术栈，从用户触摸到的界面到支撑它的服务，一层都不落地。
+
+- **整条技术栈都扛。** 把前端与后端当作一个连续整体来设计、构建与维护——架构、实现、工具链、发布。
+- **目前在手项目：zcode-cli 与 zcode-vsce。** zcode-cli 是非官方 ZCode 终端客户端（Node.js / TypeScript）——TUI 界面、runtime 提取与注入、构建发布流水线；zcode-vsce 是它的 VSCode 姊妹项目——非官方 ZCode VSCode 扩展客户端，经原生 `app-server` 协议复用同一官方 ZCode runtime，前端重做为类 Claude Code 扩展交互的 webview 面板。两者均由 Atlas 维护与迭代。
+
+**与 Anvil（BackendEngineerAgent，后端开发工程师）的分工**：横跨前后端的完整项目、以及偏前端 / TUI / 客户端侧的工作归 Atlas；纯服务端项目归 Anvil。
+
+---
+
+## 在团队中的位置
+
+| 智能体 | 职责 |
+|---|---|
+| **Atlas**（本项目） | 全部全栈开发——为团队肩扛整个技术栈 |
+| Anvil（BackendEngineerAgent） | 全部后端开发——服务端底座 |
+| Prometheus（CapabilityManagerAgent) | 通用能力底座 + 跨项目同步 + 团队注册表 |
+
+Atlas 独立于销售流水线（Scout → Wright → Buzz → Vendy → Echo），服务于整个团队的工程底座。
+
+---
+
+## 许可与署名
+
+版权所有 (c) 2026 All Contributors。基于 [MIT 许可证](LICENSE.md) 授权。
+
+**署名要求**：若你基于本项目衍生或再分发，请保留版权声明与许可证文件，并注明来源：[FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent)。
