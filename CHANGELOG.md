@@ -4,6 +4,10 @@
 
 ### 变更
 
+- **子项目清单新增 pi**（`.claude/CLAUDE.md`、AGENTS.md、README.md、README_cn.md）。为什么改：用户明确将 pi（`~/Developer/pi`，Pi agent harness 的个人 fork，fork 自 earendil-works/pi，origin 为 xhqing/pi）交由 Atlas 负责，成为第四个子项目；按「新增子项目时同步更新清单」与「清单须与全局映射表一致」规则同步登记。改了什么：①`目前在手项目` 补 pi（TypeScript monorepo：coding agent CLI / agent 运行时 / 统一多供应商 LLM API / TUI 组件库，跟上游同步并做个人维护）；②子项目清单加 `pi（~/Developer/pi）`；③双语 README 在手项目段同步；④全局注册表映射表已同步加行（镜像同步记 CapabilityManagerAgent CHANGELOG）；⑤pi 的 `.claude/CLAUDE.md` 新建（项目指南 + Atlas 全文随附；pi 项目 `.gitignore` 已忽略 `.claude/`，不进 git；根 AGENTS.md 为上游开发规则、保留不动），zcode-cli、zcode-vsce、ghostty-launcher 的随附版同步两处变更（顺手修复 ghostty-launcher 随附版滞后：其在手项目行仍为无 ghostty-launcher 自身的旧快照，本次一并更新到最新）。
+
+### 变更
+
 - **子项目清单新增 ghostty-launcher**（`.claude/CLAUDE.md`、README.md、README_cn.md）。为什么改：用户新建 ghostty-launcher——VSCode 状态栏一键唤起外部 Ghostty 终端的扩展（在跑激活已有窗口 / 未跑带工作区目录启动，零依赖、仅 macOS），并明确交由 Atlas 管理；按「子项目清单须与全局映射表一致」规则同步登记。改了什么：①`目前在手项目` 补 ghostty-launcher；②子项目清单加 `ghostty-launcher（~/Developer/ghostty-launcher）`；③双语 README 在手项目段同步；④全局注册表映射表已同步加行（镜像同步记 CapabilityManagerAgent CHANGELOG）；⑤ghostty-launcher 的 `.claude/CLAUDE.md` 已按超集规则配置（项目指南 + Atlas 全文随附），zcode-cli、zcode-vsce 的随附版同步两处变更。（`.claude/CLAUDE.md`）。为什么改：①全局通用规则已全部迁入 `~/.claude/CLAUDE.md`、`~/.claude/rules/` 目录废弃，本项目两处指向旧目录的引用失效；②全局 find-skill skill 已删（实际使用中从未用到），通用能力句式不再提及。改了什么：①「遵守通用工作规则（见全局 `~/.claude/rules/`）」与「通用工作纪律（三个规则文件名）见全局 `~/.claude/rules/`」两处改指 `~/.claude/CLAUDE.md`；②「（anysearch 实时搜索、find-skill 找 skill 等）」→「（anysearch 实时搜索等）」。子项目 zcode-cli、zcode-vsce 副本已按超集规则同步（不另记其 CHANGELOG）。
 
 ### 变更
