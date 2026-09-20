@@ -4,6 +4,10 @@
 
 ### 变更
 
+- **pi 转为独立分叉仓库，去除上游同步表述**（根 `CLAUDE.md` + 四个子项目随附版 + 全局注册表镜像）。为什么改：用户已于 2026-09-19 在 GitHub 断开 xhqing/pi 与 earendil-works/pi 的 fork 关系（isFork=false），此后分叉开发、与原始上游无关；旧文案「个人 fork、跟上游同步」会误导后续会话去做上游同步合并。改了什么：①权威源「目前在手项目」里 pi 的描述改为「独立分叉仓库……不再同步上游」；②zcode-cli、zcode-vsce、ghostty-launcher、pi 四个子项目的随附版同款行同步；③pi 根 `CLAUDE.md` 项目指南同步改写三处（Atlas 职责去掉同步合并并修正权威源路径悬空引用（`.claude/CLAUDE.md` → 根 `CLAUDE.md`）、仓库定位改独立分叉、删「上游同步时移植 AGENTS.md 变更」句）；④pi 本地 `git remote remove upstream`（pi 侧变更记 pi 仓库 `packages/coding-agent/CHANGELOG.md`）。
+
+### 变更
+
 - **子项目清单新增 pi**（`.claude/CLAUDE.md`、AGENTS.md、README.md、README_cn.md）。为什么改：用户明确将 pi（`~/Developer/pi`，Pi agent harness 的个人 fork，fork 自 earendil-works/pi，origin 为 xhqing/pi）交由 Atlas 负责，成为第四个子项目；按「新增子项目时同步更新清单」与「清单须与全局映射表一致」规则同步登记。改了什么：①`目前在手项目` 补 pi（TypeScript monorepo：coding agent CLI / agent 运行时 / 统一多供应商 LLM API / TUI 组件库，跟上游同步并做个人维护）；②子项目清单加 `pi（~/Developer/pi）`；③双语 README 在手项目段同步；④全局注册表映射表已同步加行（镜像同步记 CapabilityManagerAgent CHANGELOG）；⑤pi 的 `.claude/CLAUDE.md` 新建（项目指南 + Atlas 全文随附；pi 项目 `.gitignore` 已忽略 `.claude/`，不进 git；根 AGENTS.md 为上游开发规则、保留不动），zcode-cli、zcode-vsce、ghostty-launcher 的随附版同步两处变更（顺手修复 ghostty-launcher 随附版滞后：其在手项目行仍为无 ghostty-launcher 自身的旧快照，本次一并更新到最新）。
 
 ### 变更
