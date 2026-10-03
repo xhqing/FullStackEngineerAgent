@@ -2,6 +2,20 @@
 
 ## [未发布]
 
+### 新增
+
+- **新建子项目 codef（`~/Developer/codef`，全屏打开 VSCode 的 CLI 小工具）并纳入子项目清单**。为什么改：用户要把 `codef` 命令（原先内嵌在 `~/.zshrc` 的 shell 函数，多窗口时不置顶、时序不可靠）从个人配置提升为正式项目——建独立 git 仓库作开发目录、交 Atlas 维护，`~/.local/bin/` 作为生产目录（发版后安装、禁止软链，运行版本与开发版本隔离）。改了什么（2026-09-22）：①新建 codef 仓库初版 0.1.0（单文件 bash + osascript：打开前后窗口标题 diff 锁定本次目标窗口 → 菜单栏 Window 菜单聚焦（跨 Space / 已全屏有效）→ AXFullScreen 检查后条件全屏，修复三田：置顶错窗口 / 固定 sleep 时序落空 / 已全屏被误退出；详见该仓库 CHANGELOG）；②权威源「目前在手项目」与「当前子项目清单」加入 codef，六个子项目（zcode-cli、zcode-vsce、ghostty-launcher、cmux-launcher、pi、ghostty）随附版同步；③全局注册表映射表加 codef 行；④`~/.zshrc` 旧 codef 函数删除（换指向说明行），生产副本 `~/.local/bin/codef` 与仓库 v0.1.0 对齐；⑤codef 本地 `git init`，开源到 GitHub 待用户确认。
+
+### 变更
+
+- **ghostty 子项目转为独立分叉仓库，去除上游同步表述**（权威源 CLAUDE.md、五个子项目随附版、双语 README、全局注册表 + 镜像）。为什么改：用户于 2026-09-20 决定 ghostty 仓库（xhqing/ghostty）断开与原上游 ghostty-org/ghostty 的 fork 关系、独立分叉自主维护（GitHub 已是独立仓库状态），旧文案「跟上游版本 rebase 维护」会误导后续会话去做上游同步。改了什么：①ghostty 在手项目 / 清单 / README / 注册表表述改为「2026-09-20 起断开 fork 关系、自主演进，v1.3.1 基线 + 贴图补丁，主分支 main」；②ghostty 仓库侧同步：main 重置到补丁线、删 7 个上游遗留分支、删 paste-image 分支（历史并入 main）、build.yml 触发分支改 main、MEMO M1 改为「自主判断手动移植上游重要改进」、仓库描述改独立 fork 说明、fork CHANGELOG 记断开条目；③镜像同步记 CapabilityManagerAgent CHANGELOG。
+
+### 新增
+
+- **新建子项目 ghostty（`~/Developer/ghostty`，Ghostty 终端个人维护 fork）并纳入子项目清单**。为什么改：用户要给原生 Ghostty 加「Cmd+V 粘贴剪贴板图片为临时文件路径」能力（cmux 同款体验，方案源自上游被关闭的 PR ghostty-org/ghostty#11571，经本机双实验验证可行），经 fork + 云构建 + 实测通过后正式成为长期维护仓库（跟上游 stable tag rebase）。改了什么（2026-09-20）：①fork 上游到 xhqing/ghostty，分支 `paste-image` = v1.3.1 + 32 行补丁（`NSPasteboard+Extension.swift` 图片兑底分支）；②新建 `.github/workflows/build.yml`（标准 macOS runner + Zig 0.15.2 + Xcode 26.2 + ad-hoc 签名，构建途中排掉三个坑：Zig 0.15.2 tarball 新命名、Xcode 26.6 SDK 与 Zig 链接不兼容、改 Info.plist 与签名顺序）；③tag `v1.3.1-paste.1` + GitHub Release（产物 universal Ghostty.app.zip）；④本机正式版从 Release 产物安装替换；⑤权威源「目前在手项目」与「当前子项目清单」加入 ghostty，五个子项目随附版同步；⑥全局注册表映射表加 ghostty 行、Atlas 职责行过时列举改为概括式；⑦补历史欠账：cmux-launcher 纳入时漏更新双语 README 在手项目段与注册表映射表（当时 CHANGELOG 亦未记），本次一并补齐；zcode-cli、zcode-vsce 随附版同时落后 cmux 一版，一并补齐；pi 断 fork 时双语 README 描述仍写「跟上游同步」，一并修正为独立分叉表述。
+
+- **新建子项目 cmux-launcher（`~/Developer/cmux-launcher`）并加入子项目清单**。为什么改：用户要求新建一个 ghostty-launcher 的姊妹项目——从 VSCode 一键唤起外部 CMux 终端，且唤出入口要覆盖主侧边栏 / 副侧边栏 / 底部面板（Panel）/ 编辑器区（Edit area）四处。改了什么（2026-09-20）：①新建 cmux-launcher 项目初版 0.1.0（零依赖 VSCode 扩展，通过 CMux 自带 CLI 的 Unix socket 接口实现窗口枚举 / 聚焦 / 新建，状态栏按钮 + 四处窗口面板，详见该仓库 CHANGELOG）；②权威源「目前在手项目」与「当前子项目清单」加入 cmux-launcher，ghostty-launcher、pi 两个子项目随附版同款行同步（zcode-cli、zcode-vsce 无 CLAUDE.md，无需同步）；③cmux-launcher 本地 `git init`，开源到 GitHub 待用户确认。
+
 ### 变更
 
 - **pi 转为独立分叉仓库，去除上游同步表述**（根 `CLAUDE.md` + 四个子项目随附版 + 全局注册表镜像）。为什么改：用户已于 2026-09-19 在 GitHub 断开 xhqing/pi 与 earendil-works/pi 的 fork 关系（isFork=false），此后分叉开发、与原始上游无关；旧文案「个人 fork、跟上游同步」会误导后续会话去做上游同步合并。改了什么：①权威源「目前在手项目」里 pi 的描述改为「独立分叉仓库……不再同步上游」；②zcode-cli、zcode-vsce、ghostty-launcher、pi 四个子项目的随附版同款行同步；③pi 根 `CLAUDE.md` 项目指南同步改写三处（Atlas 职责去掉同步合并并修正权威源路径悬空引用（`.claude/CLAUDE.md` → 根 `CLAUDE.md`）、仓库定位改独立分叉、删「上游同步时移植 AGENTS.md 变更」句）；④pi 本地 `git remote remove upstream`（pi 侧变更记 pi 仓库 `packages/coding-agent/CHANGELOG.md`）。
