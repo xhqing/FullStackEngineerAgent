@@ -4,6 +4,8 @@
 
 ### 新增
 
+- **channels-watch 纳入子项目（`~/Developer/channels-watch`），并完成生产/开发隔离部署**。为什么改：用户 2026-10-09 指示把视频号私信只读监控工具 channels-watch 立项开源（仓库 `xhqing/channels-watch`，v0.1.0 已发布）并移交 Atlas 负责，需完成侧登记（权威源 / 随附版 / 双语 README）与接手首事（生产/开发隔离改造，见该仓库 `TODO.md` T1）。改了什么：①权威源「目前在手项目」与「当前子项目清单」加入 channels-watch（含开发目录与生产部署路径说明）；②八个子项目（zcode-cli、zcode-vsce、ghostty-launcher、cmux-launcher、pi、ghostty、codef、channels-watch）随附版同步到最新全文（顺手修正 zcode-cli、zcode-vsce、ghostty-launcher 三份随附版旧快照的漂移——清单版本落后、句读与权威源不一致）；③双语 README 在手项目段加入 channels-watch，并补上此前遗漏的 codef（codef 纳入时 README 未同步，本次一并修正，「六者」改为「八者」）；④生产部署：从 v0.1.0 Release 归档把 `watch.py` 安装到 `~/.local/share/channels-watch/`（与开发目录逐字节一致），launchd 改指生产副本，运行时数据（`config.json` / `state.json` / `profile/` / `logs/`）迁移至生产目录（登录态与去重状态延续、无重复推送），部署后首轮运行验证正常；⑤该仓库侧同步更新 plist 模板与双语 README 部署说明、补 CHANGELOG 条目、T1 归档（详见该仓库 CHANGELOG）。
+
 - **新建子项目 codef（`~/Developer/codef`，全屏打开 VSCode 的 CLI 小工具）并纳入子项目清单**。为什么改：用户要把 `codef` 命令（原先内嵌在 `~/.zshrc` 的 shell 函数，多窗口时不置顶、时序不可靠）从个人配置提升为正式项目——建独立 git 仓库作开发目录、交 Atlas 维护，`~/.local/bin/` 作为生产目录（发版后安装、禁止软链，运行版本与开发版本隔离）。改了什么（2026-09-22）：①新建 codef 仓库初版 0.1.0（单文件 bash + osascript：打开前后窗口标题 diff 锁定本次目标窗口 → 菜单栏 Window 菜单聚焦（跨 Space / 已全屏有效）→ AXFullScreen 检查后条件全屏，修复三田：置顶错窗口 / 固定 sleep 时序落空 / 已全屏被误退出；详见该仓库 CHANGELOG）；②权威源「目前在手项目」与「当前子项目清单」加入 codef，六个子项目（zcode-cli、zcode-vsce、ghostty-launcher、cmux-launcher、pi、ghostty）随附版同步；③全局注册表映射表加 codef 行；④`~/.zshrc` 旧 codef 函数删除（换指向说明行），生产副本 `~/.local/bin/codef` 与仓库 v0.1.0 对齐；⑤codef 本地 `git init`，开源到 GitHub 待用户确认。
 
 ### 变更
