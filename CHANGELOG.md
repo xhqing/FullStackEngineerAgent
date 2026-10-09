@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [未发布]
+
+### 新增
+
+- **mp4-player 纳入子项目（`~/Developer/mp4-player`）**。为什么改：用户 2026-10-09 指示把 mp4-player（VSCode 视频播放扩展，上游 Brodazz/mp4-player 的独立仓库；仓库基建——main 分支保护 + CI + auto-merge——已于同日完成）登记为 Atlas 子项目并补齐三件套（权威源 / 随附版 / 全局注册表）。改了什么：①权威源「目前在手项目」与「当前子项目清单」加入 mp4-player（含开发目录与「从 GitHub Release 的 vsix 安装」说明）；②其余 8 个子项目（zcode-cli、zcode-vsce、ghostty-launcher、cmux-launcher、pi、ghostty、codef、channels-watch）随附版同步到最新全文，mp4-player 自身随附版（项目指南 + Atlas 全文，`AGENTS.md` 软链）经核对与权威源逐字节一致；③全局注册表映射表加 Atlas → mp4-player 行（镜像同步与 CapabilityManagerAgent 侧记录由 Prometheus 处理）；④双语 README 在手项目段加入 mp4-player（维护项目数「八者」改为「九者」）。
+
 ## [0.1.1] - 2026-10-09
 
 ### 新增
