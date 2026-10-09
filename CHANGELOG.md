@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [未发布]
+
+### 变更
+
+- **子项目状态登记：zcode-cli 与 cmux-launcher 短期搁置（2026-10-09）**。为什么改：用户决定这两个项目短期不再维护——cmux-launcher 的本地开发目录已归档（`~/Documents/Projects-archive/cmux-launcher-2026-10-09.tar.gz`）后删除，zcode-cli 本地目录亦已删除（远端仓库与其流水线保持现状、不做处理；bump PR 与每日失败任务按用户口径搁置不动）。改了什么：①权威源「目前在手项目」与「当前子项目清单」两处标注「zcode-cli、cmux-launcher 自 2026-10-09 起短期搁置」；②七个既存子项目随附版同步最新全文（zcode-vsce、ghostty-launcher、pi、ghostty、codef、channels-watch、mp4-player——zcode-cli 与 cmux-launcher 本地目录已删除、无随附版可同步）；③全局注册表映射表两行加搁置标注（镜像同步记为 CapabilityManagerAgent 侧）；④cmux-launcher 的未完成项按 TODO 纪律归档：T1（开源到 GitHub）标 `✅已放弃` + 理由，归档副本内新增 `TODO-archive.md`、`CHANGELOG.md` 记搁置条目并重打包（同一归档路径）；⑤双语 README 的公开介绍不改（项目归属未变，仅在内部权威源标注状态）。
+
 ## [0.1.2] - 2026-10-09
 
 ### 新增
