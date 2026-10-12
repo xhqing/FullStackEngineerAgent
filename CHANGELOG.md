@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [未发布]
+
+### 变更
+
+- **子项目规则更新：子项目不再携带智能体专属文件（2026-10-12 用户修订）**。为什么改：用户修订全局规则——`CLAUDE.md` / `AGENTS.md` / `.claude/` / 项目级 `.pi/` 等智能体专属文件只有 Agent 项目允许拥有，非 Agent 项目（含子项目）一律不得存在；后台开启 pi 会话只能以 Agent 项目根目录为工作目录。改了什么：①本项目 CLAUDE.md「子项目」节改写为新规表述（清单、跨目录工作方式、文档落点；原「子项目 `.claude/` 超集」规则废止）；②清理全部 7 个子项目的智能体专属文件，有价值内容迁入各自普通文档 `DEVELOPMENT.md`（zcode-vsce / ghostty-launcher / codef / channels-watch / mp4-player 的项目指南；pi 的项目指南 + 上游 Development Rules + 原 `.pi/skills` 两份文档；ghostty 的上游开发指南），pi 的 `.pi/` 开发辅助扩展与 prompts 随删（git 历史可回溯）；③全局注册表映射表与全局 CLAUDE.md 由 Kit 侧更新。
+
 ## [0.1.3] - 2026-10-09
 
 ### 变更
