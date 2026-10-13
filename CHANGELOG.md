@@ -4,6 +4,10 @@
 
 ### 变更
 
+- **codefs 更名回退 codef（用户 2026-10-13 决定）**。为什么改：用户明确——项目与命令保持 `codef` 命名、命令不要改名（「把项目名字改成 codefs」的本意不包括命令，更名扩大化了）；命令共三个：`codef` / `codef left` / `codef --version`（仅新增 `--version` 属预期）。改了什么：①「目前在手项目」与「当前子项目清单」两处名称 / 路径回退（`~/Developer/codefs` → `~/Developer/codef`）；②双语 README 在手项目段同步回退；③全局注册表映射表与分支保护清单回退（镜像同步记 CapabilityManagerAgent 侧）；codefs 仓库侧的回退与 0.4.1 发版见该仓库 CHANGELOG。
+
+### 变更
+
 - **codef 项目更名 codefs（2026-10-13 用户决定）**。为什么改：用户要求把 codef 项目（命令 / 脚本 / GitHub 仓库 / 本地开发目录）统一更名 codefs，本项目权威源与登记需随更。改了什么：①「目前在手项目」与「当前子项目清单」两处的名称 / 路径更新（`~/Developer/codef` → `~/Developer/codefs`）；②双语 README 在手项目段同步；③全局注册表映射表 Atlas → codefs 行更新（镜像同步记 CapabilityManagerAgent 侧）；codefs 仓库自身的改名与 `--version` 新增见该仓库 CHANGELOG v0.4.0。
 
 ### 变更
