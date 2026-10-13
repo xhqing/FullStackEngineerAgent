@@ -4,6 +4,10 @@
 
 ### 变更
 
+- **codef 项目更名 codefs（2026-10-13 用户决定）**。为什么改：用户要求把 codef 项目（命令 / 脚本 / GitHub 仓库 / 本地开发目录）统一更名 codefs，本项目权威源与登记需随更。改了什么：①「目前在手项目」与「当前子项目清单」两处的名称 / 路径更新（`~/Developer/codef` → `~/Developer/codefs`）；②双语 README 在手项目段同步；③全局注册表映射表 Atlas → codefs 行更新（镜像同步记 CapabilityManagerAgent 侧）；codefs 仓库自身的改名与 `--version` 新增见该仓库 CHANGELOG v0.4.0。
+
+### 变更
+
 - **迁移项目指南到 `DEVELOPMENT.md`，删除智能体专属文件**（2026-10-12 新规）：`CLAUDE.md` / `AGENTS.md` / `.claude/` / `.pi/` 等智能体专属文件不再保留；有价值内容（项目指南 / 上游开发规则等）已迁入普通文档。
 
 
