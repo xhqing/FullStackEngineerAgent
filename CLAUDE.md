@@ -28,7 +28,7 @@
 
 ## 子项目（2026-10-17 修订：Agent 进驻子项目）
 
-本项目负责维护若干**子项目**（Atlas 负责的全栈项目；完整映射表以全局 `~/.claude/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-12 修订）」节为权威）。
+本项目负责维护若干**子项目**（Atlas 负责的全栈项目；完整映射表以全局 `~/.claude/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-17 修订）」节为权威）。
 
 - **智能体专属文件：实体只属于本项目，子项目挂指回本项目的软链接（2026-10-17 用户修订，取代 2026-10-12 的「子项目一律不得存在」）**：`CLAUDE.md`、`AGENTS.md`、`.claude/`、项目级 `.pi/` 等「会话启动时按工作目录加载、表征智能体身份」的项目级文件，其**实体只属于 Agent 项目**；子项目根目录挂两条相对路径软链接——`AGENTS.md → ../FullStackEngineerAgent/AGENTS.md`、`.pi → ../FullStackEngineerAgent/.pi`（**随仓库提交**）——在子项目目录直接开会话时会话即继承 Atlas 的身份 / 规则 / 技能（「Agent 进驻子项目」）。子项目里保留的其它内容是普通文档（如 `DEVELOPMENT.md` 开发说明、README、CHANGELOG、TODO 等）。
 - **当前子项目清单**：ghostty-launcher（`~/Developer/ghostty-launcher`）、pi（`~/Developer/pi`）、ghostty（`~/Developer/ghostty`）、codef（`~/Developer/codef`）、mp4-player（`~/Developer/mp4-player`）；zcode-cli、zcode-vsce、cmux-launcher 已于 2026-10-14 取消（本地资料删除、远端仓库留档）；channels-watch 已于 2026-10-17 退役（本地项目资料删除）。新增子项目时同步更新本清单与全局注册表映射表。
