@@ -6,6 +6,8 @@
 
 - **channels-watch 退役（2026-10-17 用户决定）**。为什么改：用户决定 channels-watch 不再维护——本地卫生处理、删除本地项目文件、注册表移除；本项目文件须与注册表保持一致。改了什么：①「目前在手项目」段移除 channels-watch 描述、结尾更新取消/退役说明；②「当前子项目清单」同步移除；③双语 README 在手项目段同步（六者 → 五者，附退役说明）。登记侧与镜像同步记 CapabilityManagerAgent 侧（本地清理与注册表编辑由 Kit 会话执行）。
 
+- **子项目「Agent 进驻」软链接网络落地（2026-10-17 用户修订）**。为什么改：用户 2026-10-17 修订智能体专属文件规则——实体（`CLAUDE.md` / `AGENTS.md` / `.claude/` / 项目级 `.pi/`）只属 Agent 项目，子项目改挂两条指回负责 Agent 的软链接（在子项目目录开会话即继承负责 Agent 身份 / 规则 / 技能）；详见全局 `~/.claude/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-17 修订）」。改了什么：①新增 `AGENTS.md → CLAUDE.md` 软链接（pi 侧上下文别名）；②新增 `.pi/`（含 `.gitkeep`）供子项目软链接挂载；③`CLAUDE.md`「子项目」节更新为 2026-10-17 版（两条软链接随仓库提交、后台会话仍限 Agent 项目根目录、`.claude/` 不纳入）；④本 Agent 名下 5 个子项目（ghostty-launcher / codef / pi / ghostty / mp4-player）各挂 `AGENTS.md`、`.pi` 两条软链接并随仓库提交（各子项目 CHANGELOG 分记，本地挂载由 Kit 会话执行）。
+
 ## [0.1.4] - 2026-10-14
 
 ### 变更
