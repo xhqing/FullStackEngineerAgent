@@ -4,6 +4,8 @@
 
 ### 变更
 
+- **pi 子项目本地目录改名 pi-harness（2026-10-23）**。为什么改：GitHub 仓库已于 2026-10-18 改名为 `xhqing/pi-harness`，本地开发目录仍是 `~/Developer/pi`，与仓库名不一致、也容易与上游 `earendil-works/pi` 混淆。改了什么：①`~/Developer/pi` → `~/Developer/pi-harness`；②`CLAUDE.md`「当前子项目清单」同步更新为 `pi-harness（~/Developer/pi-harness）`；③全局注册表的 pi 侧权威副本与 `.claude` 遗留副本的子项目行同步为 `pi-harness`（CapabilityManagerAgent 的 `pi/agent` 镜像及其 CHANGELOG 另记）；④`~/.pi/agent/trust.json` 的旧项目路径替换为新路径。另：本机全局 pi 由 0.0.6 升级到 0.0.7（安装路径变为 `node_modules/pi-coding-agent`，「Update Available」提示里的 Changelog 链接随之指向 `xhqing/pi-harness`）。
+
 - **文档路径口径更新（2026-10-17）：全局权威源迁至 `~/.pi/agent/`**。为什么改：2026-10-17 全局规则 / 技能 / 文档的权威源迁至 `~/.pi/agent/`（旧 `~/.claude/` 为遗留副本、勿再修改；仅 CC 侧 hooks 原位保留）。改了什么：CLAUDE.md 4 处引用更新——`~/.claude/CLAUDE.md`（通用工作规则 / 通用工作纪律 2 处）、`~/.claude/`（通用能力来源）、`~/.claude/docs/agents-registry.md`（子项目映射权威）→ 均改为 `~/.pi/agent/...`。登记与镜像口径同步记 CapabilityManagerAgent 侧。
 
 - **channels-watch 退役（2026-10-17 用户决定）**。为什么改：用户决定 channels-watch 不再维护——本地卫生处理、删除本地项目文件、注册表移除；本项目文件须与注册表保持一致。改了什么：①「目前在手项目」段移除 channels-watch 描述、结尾更新取消/退役说明；②「当前子项目清单」同步移除；③双语 README 在手项目段同步（六者 → 五者，附退役说明）。登记侧与镜像同步记 CapabilityManagerAgent 侧（本地清理与注册表编辑由 Kit 会话执行）。
