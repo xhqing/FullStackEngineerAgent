@@ -4,6 +4,8 @@
 
 ### 变更
 
+- **双语 README「在手项目」段对齐为六项（`pi` → `pi-harness`、补入 XPilot，2026-10-26）**。为什么改：接手 XPilot 后自查发现 README 与 `CLAUDE.md` 已不一致——README 仍写五项、`pi` 也未随 2026-10-23 的目录改名更新为 `pi-harness`（当时只改了 CLAUDE.md 与注册表），对外说明与实际维护范围对不上。改了什么：`README.md` / `README_cn.md` 第 29 段同步——标题列举改为六项，`pi` 改称 `pi-harness`，新增 XPilot 一句话说明（xray 后端的 CLI 代理工具箱、开发目录 `~/Developer/XPilot`、2026-10-26 由已注销的 NetOpsAgent 项目移交、从 GitHub Release 的 wheel 安装），结尾「五者」改「六者」。
+
 - **XPilot 子项目移交至 Atlas（2026-10-26 团队结构调整）**。为什么改：用户 2026-10-26 注销 Hermes（NetOpsAgent）这个 Agent，其名下唯一子项目 XPilot 移交本项目负责，全局 `~/.pi/agent/docs/agents-registry.md` 已先行改完，本项目文件须与之保持一致。改了什么：`CLAUDE.md`「当前子项目清单」补入 `XPilot（~/Developer/XPilot，2026-10-26 由已注销的 NetOpsAgent / Hermes 移交）`；XPilot 仓库根目录两条身份软链接的指向由 `../NetOpsAgent/` 改为 `../FullStackEngineerAgent/`（该仓库侧改动记其自己的 CHANGELOG）。
 
 - **pi 子项目本地目录改名 pi-harness（2026-10-23）**。为什么改：GitHub 仓库已于 2026-10-18 改名为 `xhqing/pi-harness`，本地开发目录仍是 `~/Developer/pi`，与仓库名不一致、也容易与上游 `earendil-works/pi` 混淆。改了什么：①`~/Developer/pi` → `~/Developer/pi-harness`；②`CLAUDE.md`「当前子项目清单」同步更新为 `pi-harness（~/Developer/pi-harness）`；③全局注册表的 pi 侧权威副本与 `.claude` 遗留副本的子项目行同步为 `pi-harness`（CapabilityManagerAgent 的 `pi/agent` 镜像及其 CHANGELOG 另记）；④`~/.pi/agent/trust.json` 的旧项目路径替换为新路径。另：本机全局 pi 由 0.0.6 升级到 0.0.7（安装路径变为 `node_modules/pi-coding-agent`，「Update Available」提示里的 Changelog 链接随之指向 `xhqing/pi-harness`）。
