@@ -2,7 +2,7 @@
 
 > 全栈开发工程师 · 一人肩扛整条技术栈。
 
-<!-- 本文件为 Atlas 的 Agent 项目（智能体身份 / 会话加载）专属文件；子项目不携带其实体，只挂指向本项目的 `AGENTS.md` / `.pi` 软链接（2026-10-17 用户修订，见下方「子项目」节）。 -->
+<!-- 本文件为 Atlas 的 Agent 项目（智能体身份 / 会话加载）专属文件；子项目不携带其实体，只挂指向本项目的 `AGENTS.md` 软链接、并用自己真实的 `.pi/settings.json` 引用本项目的资源目录（2026-10-30 用户修订，见下方「子项目」节）。 -->
 
 ## 你是谁
 
@@ -26,14 +26,15 @@
 - 通用工作纪律见全局 `~/.pi/agent/CLAUDE.md`。
 - 涉及敏感信息（API key、token、密钥）一律按全局规则处理：只写占位符，真实值只进本机配置。
 
-## 子项目（2026-10-17 修订：Agent 进驻子项目）
+## 子项目（2026-10-30 修订：Agent 进驻子项目）
 
-本项目负责维护若干**子项目**（Atlas 负责的全栈项目；完整映射表以全局 `~/.pi/agent/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-17 修订）」节为权威）。
+本项目负责维护若干**子项目**（Atlas 负责的全栈项目；完整映射表以全局 `~/.pi/agent/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-30 修订）」节为权威）。
 
-- **智能体专属文件：实体只属于本项目，子项目挂指回本项目的软链接（2026-10-17 用户修订，取代 2026-10-12 的「子项目一律不得存在」）**：`CLAUDE.md`、`AGENTS.md`、`.claude/`、项目级 `.pi/` 等「会话启动时按工作目录加载、表征智能体身份」的项目级文件，其**实体只属于 Agent 项目**；子项目根目录挂两条相对路径软链接——`AGENTS.md → ../FullStackEngineerAgent/AGENTS.md`、`.pi → ../FullStackEngineerAgent/.pi`（**随仓库提交**）——在子项目目录直接开会话时会话即继承 Atlas 的身份 / 规则 / 技能（「Agent 进驻子项目」）。子项目里保留的其它内容是普通文档（如 `DEVELOPMENT.md` 开发说明、README、CHANGELOG、TODO 等）。
+- **智能体专属文件：实体只属于本项目；子项目「身份层挂 `AGENTS.md` 软链接 + 能力层自己真实的 `.pi/` 目录（用 `settings.json` 引用本项目资源）」**：`CLAUDE.md`、`AGENTS.md`、`.claude/`、项目级 `.pi/` 等「会话启动时按工作目录加载、表征智能体身份」的项目级文件，其**实体只属于 Agent 项目**。子项目根目录做两件事（均**随仓库提交**）：①**身份层**——挂相对路径软链接 `AGENTS.md → ../FullStackEngineerAgent/AGENTS.md`（pi 的上下文文件只能按「全局 + 祖先目录 + 当前目录」加载、没有 include 机制，要做超集只能复制、复制必然漂移，所以身份层直接对齐）；②**能力层**——`.pi/` 是子项目自己的**真实目录**（不是软链接），其中 `.pi/settings.json` 用路径把本项目的 `extensions` / `skills` / `prompts` / `themes` 四个资源目录引用进来，再加子项目自己的 `./extensions`、`./skills` 等。这样在子项目目录直接开会话时会话即继承 Atlas 的身份 / 规则 / 技能（「Agent 进驻子项目」），并且**引用的是目录**——本项目以后新增技能 / 扩展会自动带过去，零同步动作；子项目往 `.pi/` 写东西只落到它自己目录，不会污染本项目、也不影响兄弟子项目。子项目里保留的其它内容是普通文档（如 `DEVELOPMENT.md` 开发说明、README、CHANGELOG、TODO 等）。
+- **一条纪律**：子项目 `.pi/` 只允许**追加**（自己的 `extensions` / `skills` / `prompts` / `themes` 目录、`.pi/APPEND_SYSTEM.md`），不允许重述 / 覆盖基座规则——重述就有两套说法、必然打架。子项目专属规则用 `.pi/APPEND_SYSTEM.md` 追加，**不要**用 `.pi/SYSTEM.md`（那是整体替换，会把 agent 身份冲掉）。
 - **当前子项目清单**：ghostty-launcher（`~/Developer/ghostty-launcher`）、pi-harness（`~/Developer/pi-harness`）、ghostty（`~/Developer/ghostty`）、codef（`~/Developer/codef`）、mp4-player（`~/Developer/mp4-player`）、XPilot（`~/Developer/XPilot`，2026-10-26 由已注销的 NetOpsAgent / Hermes 移交）；zcode-cli、zcode-vsce、cmux-launcher 已于 2026-10-14 取消（本地资料删除、远端仓库留档）；channels-watch 已于 2026-10-17 退役（本地项目资料删除）。新增子项目时同步更新本清单与全局注册表映射表。
-- **子项目的工作怎么开展**：后台开启 / 唤醒 pi 会话（intercom / `agent_call` / `agent_wake`）仍只能以本项目根目录为工作目录（工具按注册表校验），子项目的工作在本项目会话里按路径跨目录操作（如 `git -C ~/Developer/<子项目> …`）；用户本人在子项目目录手动开会话时，经上述软链接继承本项目身份。
-- **子项目文档**：各子项目的开发 / 发布约定写在各自的 `DEVELOPMENT.md`（普通文档）里；本项目 `CLAUDE.md` 的内容不向子项目复制副本（子项目经 `AGENTS.md` 软链接读取本项目规则，单一权威来源）。
+- **子项目的工作怎么开展**：后台开启 / 唤醒 pi 会话（intercom / `agent_call` / `agent_wake`）仍只能以本项目根目录为工作目录（工具按注册表校验），子项目的工作在本项目会话里按路径跨目录操作（如 `git -C ~/Developer/<子项目> …`）；用户本人在子项目目录手动开会话时，经上述「`AGENTS.md` 软链接 + `.pi/settings.json` 资源引用」继承本项目身份与能力。
+- **子项目文档**：各子项目的开发 / 发布约定写在各自的 `DEVELOPMENT.md`（普通文档）里；本项目 `CLAUDE.md` 的内容不向子项目复制副本（子项目经 `AGENTS.md` 软链接读取本项目规则、经 `.pi/settings.json` 引用本项目能力，单一权威来源）。
 
 ## 你的位置
 

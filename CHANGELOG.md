@@ -4,6 +4,8 @@
 
 ### 变更
 
+- **子项目「Agent 进驻」改为「`AGENTS.md` 软链接 + 真实 `.pi/` 目录（资源引用）」（2026-10-30 用户修订）**。为什么改：用户 2026-10-30 修订全局规则——旧版把子项目 `.pi` 整个软链接到本项目的 `.pi`，等于把「共享」与「独占」压在同一个符号上：子项目往 `.pi` 写任何东西都会直接落进本项目（污染全部兄弟子项目、并进本仓库 git 历史），而 `AGENTS.md` 没有 include 机制、用复制做超集必然漂移。改了什么：①`CLAUDE.md`「子项目」节改写为 2026-10-30 版（身份层 `AGENTS.md` 软链接保持一致；能力层为各子项目自己真实的 `.pi/` 目录，内用 `settings.json` 按路径引用本项目四个资源目录；写明「子项目 `.pi` 只允许追加、不得重述基座规则，专属规则用 `APPEND_SYSTEM.md` 不用 `SYSTEM.md`」）；②本项目名下 6 个子项目（codef / ghostty-launcher / ghostty / mp4-player / pi-harness / XPilot）的 `.pi` 软链接就地换成真实目录 + `settings.json`，`AGENTS.md` 软链接维持不变（本地挂载与各子项目仓库提交在本会话完成，各子项目 CHANGELOG 分记）。验证：在临时探针项目里用同一份 `settings.json` 形式引用 `~/Developer/ExecutiveAssistantAgent/.pi/skills` 并放一个本地点探 skill，`pi --approve -p` 一次性列出外部引用与本地的 18 个技能（机制生效）；在 codef 目录 `pi --approve -p` 回答身份为 Atlas、未报路径错误。备注：本项目 `.pi/` 仍是空目录（只有 `.gitkeep`），四个被引用的资源目录尚不存在，pi 对不存在的资源路径不报错（已实测；以后新增资源放入即自动生效，无需改子项目）。
+
 - **双语 README「在手项目」段对齐为六项（`pi` → `pi-harness`、补入 XPilot，2026-10-26）**。为什么改：接手 XPilot 后自查发现 README 与 `CLAUDE.md` 已不一致——README 仍写五项、`pi` 也未随 2026-10-23 的目录改名更新为 `pi-harness`（当时只改了 CLAUDE.md 与注册表），对外说明与实际维护范围对不上。改了什么：`README.md` / `README_cn.md` 第 29 段同步——标题列举改为六项，`pi` 改称 `pi-harness`，新增 XPilot 一句话说明（xray 后端的 CLI 代理工具箱、开发目录 `~/Developer/XPilot`、2026-10-26 由已注销的 NetOpsAgent 项目移交、从 GitHub Release 的 wheel 安装），结尾「五者」改「六者」。
 
 - **XPilot 子项目移交至 Atlas（2026-10-26 团队结构调整）**。为什么改：用户 2026-10-26 注销 Hermes（NetOpsAgent）这个 Agent，其名下唯一子项目 XPilot 移交本项目负责，全局 `~/.pi/agent/docs/agents-registry.md` 已先行改完，本项目文件须与之保持一致。改了什么：`CLAUDE.md`「当前子项目清单」补入 `XPilot（~/Developer/XPilot，2026-10-26 由已注销的 NetOpsAgent / Hermes 移交）`；XPilot 仓库根目录两条身份软链接的指向由 `../NetOpsAgent/` 改为 `../FullStackEngineerAgent/`（该仓库侧改动记其自己的 CHANGELOG）。
