@@ -8,6 +8,12 @@
 
 ## [未发布]
 
+### 变更（移除访问量徽章，配合停用集中式流量采集）
+
+- **为什么改**：用户 2026-11-04 决定停用 xhqing 仓库的集中式访问量采集，同时不再在各仓库 README 展示访问量徽章。徽章的数据源必须由采集任务每天刷新，采集停掉之后徽章会冻结在旧值，而徽章文案写的是「Visits/day (14d)」——数字不再更新却仍显示成实时数据，留着反而误导读者。
+- **改了什么**：`README.md` / `README_cn.md` 顶部徽章区删除那一枚 shields.io 访问量徽章（整行删除，数据源 `https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/<仓库名>.json`）；License / Version / Type 等其它徽章与正文一个字未动。
+- **回归检查**：只删这一整行，徽章区所在的 `<p align="center">` / `<div>` 结构与相邻徽章不受影响；README 其余内容零改动。
+
 ### 变更
 
 - **子项目「Agent 进驻」改为「`AGENTS.md` 软链接 + 真实 `.pi/` 目录（资源引用）」（2026-10-30 用户修订）**。为什么改：用户 2026-10-30 修订全局规则——旧版把子项目 `.pi` 整个软链接到本项目的 `.pi`，等于把「共享」与「独占」压在同一个符号上：子项目往 `.pi` 写任何东西都会直接落进本项目（污染全部兄弟子项目、并进本仓库 git 历史），而 `AGENTS.md` 没有 include 机制、用复制做超集必然漂移。改了什么：①`CLAUDE.md`「子项目」节改写为 2026-10-30 版（身份层 `AGENTS.md` 软链接保持一致；能力层为各子项目自己真实的 `.pi/` 目录，内用 `settings.json` 按路径引用本项目四个资源目录；写明「子项目 `.pi` 只允许追加、不得重述基座规则，专属规则用 `APPEND_SYSTEM.md` 不用 `SYSTEM.md`」）；②本项目名下 6 个子项目（codef / ghostty-launcher / ghostty / mp4-player / pi-harness / XPilot）的 `.pi` 软链接就地换成真实目录 + `settings.json`，`AGENTS.md` 软链接维持不变（本地挂载与各子项目仓库提交在本会话完成，各子项目 CHANGELOG 分记）。验证：在临时探针项目里用同一份 `settings.json` 形式引用 `~/Developer/ExecutiveAssistantAgent/.pi/skills` 并放一个本地点探 skill，`pi --approve -p` 一次性列出外部引用与本地的 18 个技能（机制生效）；在 codef 目录 `pi --approve -p` 回答身份为 Atlas、未报路径错误。备注：本项目 `.pi/` 仍是空目录（只有 `.gitkeep`），四个被引用的资源目录尚不存在，pi 对不存在的资源路径不报错（已实测；以后新增资源放入即自动生效，无需改子项目）。
