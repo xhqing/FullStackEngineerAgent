@@ -45,6 +45,17 @@ Atlas is independent of the sales pipeline (Scout → Wright → Buzz → Vendy 
 
 ## License & Attribution
 
-Copyright (c) 2026 All Contributors. Licensed under the [MIT License](LICENSE.md).
+Copyright (c) 2026 All Contributors. Released under the [MIT License](LICENSE.md).
 
-**Attribution:** If you derive from or redistribute this project, please retain the copyright notice and license file, and credit the source: [FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent).
+MIT imposes exactly one condition: if you distribute copies of this work, or
+substantial portions of it, you must carry the copyright notice above and the
+license text along with them. Nothing else is required — no notification, no
+attribution in your product's interface, no approval from us.
+
+**Requested, not required:** if this project was useful to you, a mention is
+appreciated.
+
+> Built on [FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent),
+> © All Contributors, MIT licensed.
+
+That is a courtesy, not a condition of the license.
