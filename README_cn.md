@@ -45,6 +45,13 @@ Atlas 独立于销售流水线（Scout → Wright → Buzz → Vendy → Echo）
 
 ## 许可与署名
 
-版权所有 (c) 2026 All Contributors。基于 [MIT 许可证](LICENSE.md) 授权。
+版权所有 (c) 2026 All Contributors，基于 [MIT 许可证](LICENSE.md) 授权。
 
-**署名要求**：若你基于本项目衍生或再分发，请保留版权声明与许可证文件，并注明来源：[FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent)。
+MIT 只施加一个条件：分发本作品的副本（或其中的实质性部分）时，必须一并携带上面的版权声明与许可证全文。除此之外不要求任何事——不必通知我们，不必在产品界面致谢，也不必取得我们的许可。
+
+**以下只是请求，不是义务**：如果这个项目帮到了你，我们乐于被提及。
+
+> 基于 [FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent)，
+> © All Contributors，MIT 授权。
+
+这是礼节，不是许可证的条件。
