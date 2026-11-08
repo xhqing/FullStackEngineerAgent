@@ -8,6 +8,17 @@
 
 ## [未发布]
 
+### 变更（版权声明写入个人署名 `xhqing` + 主页 URI，本仓库对 commit skill 第 9g 步归一规则取例外）
+
+- **为什么改**：用户 2026-11-08 要求「自己的名字出现在版权声明中」，让作品被使用时能追溯到本人。原写法 `Copyright (c) 2026 All Contributors` 有两层缺陷：其一，`All Contributors` 是集合概念，不构成《最高人民法院关于审理著作权民事纠纷案件适用法律若干问题的解释》（法释〔2002〕31 号）第七条所称「署名的自然人、法人或者其他组织」，无法据此享受「署名即视为权利人」的举证便利；其二，该行不含任何可追溯标识，第三方看到后无从定位到具体作者。
+- **改了什么**（2026-11-08）：
+  - `LICENSE.md` 版权行：`Copyright (c) 2026 All Contributors` → `Copyright (c) 2026 xhqing <https://github.com/xhqing>`。主体在前（自然人，落得进司法解释七条的推定范围）、URI 在尖括号内（可追溯标识，指认该 GitHub 账号即本人）。
+  - `README.md` / `README_cn.md`：授权段的版权行与「使用方引用示例」同步改为 `xhqing`。
+  - **不写 `and contributors`**：用户 2026-11-08 明确「目前也没想过要接受 contributor」。版权声明反映事实、不预留位置；日后若接收他人的实质贡献，再同步补为 `xhqing and contributors` 或另立 CLA。
+  - `.commit-cache.md` 的 `attribution-name` 标记说明改写——由「已归一为 All Contributors」改为「本仓库有意个人署名、不做归一」，并写明依据与边界，确保后续 `/commit` 不会被 commit skill 第 9g 步静默回改。
+- **回归检查**：① 不涉及代码与运行行为；② 双语 README 同轮同步（版权行、示例署名两处）；③ 版本号不动（文档类改动，不触发 bump / 发版）；④ MIT 的授权条款正文一字未动——只改 `the above copyright notice` 的具体持有人，不影响授权范围；⑤ `LICENSE.md` 徽章与许可证类型仍为 MIT，与「本项目是软件项目」的定性一致。
+- **与全局规则的冲突及处理（如实记录）**：commit skill 第 9g 步要求「README / README_cn / LICENSE 三份文件的版权人统一 `All Contributors`，不出现具体个人名」。本次通过 `.commit-cache.md` 的缓存标记**显式豁免**并记录理由，属有记录的例外、非静默绕过。遗留问题：9g 这条规则本身与上述司法解释的口径不一致（强制所有项目使用无法落到法律主体的集合式版权人），本仓库的例外只解决单点；全队其余 37 个仓库仍为 `All Contributors`，是否修订规则并统一全队属需单独评估的事项，本次未擅自批量改动。
+
 ### 变更（评估 CC BY 4.0 后保持 MIT——本项目是软件项目；署名条款消除「要求」与「请」的自相矛盾）
 
 - **为什么改**：用户 2026-11-08 提出 5 项署名诉求（权利来源不被抹掉、出纠纷能证明是自己写的、被使用时能被知道、借作品引流攒声誉、希望转载者注明出处），并要求评估现有 MIT + `All Contributors` 是否够用。评估过程中曾一度改为 CC BY 4.0，理由是「仓库主体是 Markdown、MIT 的授权对象是 software、两者对不上」。但用户随后提出关键反驳并成立：**本项目的 Markdown 不是给人读的文档，是给 LLM 读的程序逻辑**——`AGENTS.md` 定义 agent 的身份、职责与行为边界，`.pi/` 下是配置、技能与扩展，删掉或改写它们会直接改变程序行为。据此本项目的产物具备软件的「功能性」本质（产生技术效果而非审美表达），MIT 原文 `this software and associated documentation files` 完全覆盖（`AGENTS.md` 本身是 software，README 是 associated documentation）。因此撤销换许可证的决定，两条理由：① 「对象错位」这个前提不成立；② Creative Commons 官方明确**不建议**将 CC 许可证用于软件（CC 许可不含专利授权条款、无源码分发要求、与现有软件许可证组合时兼容性复杂），拿 CC BY 4.0 覆盖一个软件项目的核心文件违背其官方指引。
