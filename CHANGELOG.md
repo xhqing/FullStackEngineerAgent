@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### 变更（README 顶部 LOGO 改走 markdown 图片语法 + PNG，修 VSCode 预览里不显示，2026-11-09）
+
+- **为什么改**：用户反馈改到 r16 版本，VSCode 内置 Markdown 预览里只有徽章（shields.io 远程 SVG）能显示，顶部 LOGO 始终是破图（只剩 alt 文字和问号图标）。查 VSCode 1.145 内置 markdown 扩展的打包代码后定位到根因：预览只对 **markdown 语法的图片** `![]()` 重写 `src`（`renderer.rules.image` 里调 `asWebviewUri` 换成 webview 资源 URI），对**原生 HTML `<img src="...">` 是原样输出**（`html_block` / `html_inline` 直接 `return content`），只能靠 `<base href>` 去凑；原来的 LOGO 正是本地 `assets/logo.svg` + HTML `<img>`，走的就是这条没被重写的通道。徽章是 markdown 语法 + 远程 https 绝对地址，两个条件都踩对，所以只有它显出来了。
+- **改了什么**：
+  - 新增 `assets/logo.png`（640×200，由 `assets/logo.svg` 用 Chrome 无头模式按 2 倍分辨率渲染后再降采样，保留彩色 emoji 与渐变圆角）；`assets/logo.svg` 原样保留，作为可再编辑的源文件。
+  - `README.md` / `README_cn.md` 顶部：`<img src="assets/logo.svg" width="640">` 改为 markdown 图片语法 `![FullStackEngineerAgent](assets/logo.png)`；外层 `<div align="center">` 保留，但用空行隔开，让图片走 markdown 解析、不被 HTML 块吞掉。
+  - 出图尺寸按 640 宽：VSCode 预览样式表（`media/markdown.css`）里没有 `img { max-width: 100% }`，宽图会横向溢出出滚动条，所以 PNG 直接按展示尺寸出。
+- **回归检查**：① 只改文档与图片资源，不涉及代码与运行行为；② 中英双语 README 同轮同步；③ 版本号不动（纯文档改动，不触发 bump / 发版）；④ 徽章区与正文其余内容一字未动；⑤ 用 markdown_it 实渲染复核，输出结构为 `<div align="center"><p><img src="assets/logo.png" …></p></div>`，可确认图片是 markdown 图片 token（会走 VSCode 的 src 重写通道），居中效果不变。
+
 ### 变更（本项目与子项目的 `AGENTS.md`、`.pi/` 改为完全独立，2026-11-08）
 
 - **为什么改**：用户 2026-11-08 决定「Agent 项目与其子项目二者的 AGENTS.md（项目规则）和 .pi 目录之间应该完全无关」——各自只放本项目真实需要的规则与工具，这样才能同时满足两边的特异性需求。原做法（子项目挂 `AGENTS.md` 软链接 + `.pi/settings.json` 引用本项目四个资源目录）有两个毛病：跨仓库路径引用是隐式依赖，本项目改名 / 子项目单独 clone / 换机器都会静默失效；而「只允许追加、不许重述」的纪律本身就说明两层混在一起有事。实测本项目 `.pi/` 里四个资源目录根本不存在，8 个子项目引用的全是空目录。
