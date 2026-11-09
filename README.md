@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="FullStackEngineerAgent" width="640">
+
+![FullStackEngineerAgent](assets/logo.png)
+
 </div>
 
 <div align="center">
