@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### 变更（子项目 worktree 目录命名：必须以子项目名开头，2026-11-09）
+
+- **为什么改**：用户发现 `~/Developer/FullStackEngineerAgent-turn-diff` 这种目录名看不出归属——它实际是 FullStackEngineerAgent 主仓库的分支，名字却像 turn-diff 子项目的 worktree。用户原话：「子项目的 worktree 名字禁止使用『agent 项目或者其它项目名字 + 子项目名字』的命名方式，这样我看不出来到底是哪一个项目的 worktree」。
+- **改了什么**：`AGENTS.md` 的 Leader 分工第②步补上命名约束——worktree 目录名写成 `<子项目>-<事项>`，第一个项目名必须是子项目本身，禁止 `FullStackEngineerAgent-<子项目>` / `Atlas-<子项目>` 这类拼法，事项 slug 也不许恰好等于另一个子项目名。全局 `~/.pi/agent/AGENTS.md` 同步立规，并用扩展 `worktree-name-guard.ts` 工具强制（拦截违反命名的 `git worktree add` / `git worktree move`）。
+- **回归检查**：① 只改规则文字，不涉及代码与运行行为；② 版本号不动（文档类改动，不触发 bump / 发版）；③ 「Leader / Worker 分工」其余规则一字未动；④ 判据与全局规则一致——名字前缀必须是本仓库（子项目）名，事项 slug 不许撞另一个项目名。
+
 ### 变更（README 顶部 LOGO 改走 markdown 图片语法 + PNG，修 VSCode 预览里不显示，2026-11-09）
 
 - **为什么改**：用户反馈改到 r16 版本，VSCode 内置 Markdown 预览里只有徽章（shields.io 远程 SVG）能显示，顶部 LOGO 始终是破图（只剩 alt 文字和问号图标）。查 VSCode 1.145 内置 markdown 扩展的打包代码后定位到根因：预览只对 **markdown 语法的图片** `![]()` 重写 `src`（`renderer.rules.image` 里调 `asWebviewUri` 换成 webview 资源 URI），对**原生 HTML `<img src="...">` 是原样输出**（`html_block` / `html_inline` 直接 `return content`），只能靠 `<base href>` 去凑；原来的 LOGO 正是本地 `assets/logo.svg` + HTML `<img>`，走的就是这条没被重写的通道。徽章是 markdown 语法 + 远程 https 绝对地址，两个条件都踩对，所以只有它显出来了。
