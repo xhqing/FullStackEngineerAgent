@@ -1,6 +1,6 @@
 <div align="center">
 
-![FullStackEngineerAgent](assets/logo.png)
+![dev-agent](assets/logo.png)
 
 </div>
 
@@ -12,13 +12,13 @@
 
 </div>
 
-# FullStackEngineerAgent
+# dev-agent
 
 > 🌍 **Atlas（阿特拉斯）** — 全栈开发工程师。肩扛整条技术栈的巨人：从面向用户的前端到服务端的后端，端到端全部负责。
 
 [English](README.md)
 
-FullStackEngineerAgent 负责**横跨整个技术栈的全栈开发**：前端界面（Web / TUI / VSCode 扩展）、后端服务（API / 数据库 / 系统架构）、以及贯通两者的工程化（构建 / 发布 / 工具链）。其他 agent 各守一层，Atlas 一人扛起全部。
+dev-agent 负责**横跨整个技术栈的全栈开发**：前端界面（Web / TUI / VSCode 扩展）、后端服务（API / 数据库 / 系统架构）、以及贯通两者的工程化（构建 / 发布 / 工具链）。其他 agent 各守一层，Atlas 一人扛起全部。
 
 ---
 
@@ -53,7 +53,7 @@ MIT 只施加一个条件：分发本作品的副本（或其中的实质性部�
 
 **以下只是请求，不是义务**：如果这个项目帮到了你，我乐于被提及。
 
-> 基于 [FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent)，
+> 基于 [dev-agent](https://github.com/xhqing/dev-agent)，
 > © 2026 xhqing and contributors，MIT 授权。
 
 这是礼节，不是许可证的条件。

@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### 变更（项目更名 FullStackEngineerAgent → dev-agent，2026-11-10）
+
+- **为什么改**：用户要求把本项目名称改为 `dev-agent`，并同步全团队所有关联内容。团队 Agent 项目命名规则是「一律 `<职责>-agent` 全小写、连字符」（本 Agent 职责为全栈开发 → `dev-agent`），旧名 `FullStackEngineerAgent` 是帕斯卡式长名，与规则不符；`Atlas` 是人格名（人名风格），与项目名属两个层面，保持不变。
+- **改了什么**：① GitHub 仓库 `xhqing/FullStackEngineerAgent` → `xhqing/dev-agent`（GitHub 自动重定向旧地址）、本地目录 `~/Developer/FullStackEngineerAgent` → `~/Developer/dev-agent`、`origin` 远端地址同步更新；② 双语 README 标题、图片 alt、正文称呼与底部署名链接改为 `dev-agent`；③ `AGENTS.md` 标题、Leader 会话 cwd 路径、worktree 命名反例同步改为 `dev-agent`；④ `assets/logo.svg` 文字改为 `dev-agent`（主标题字号 32 → 64、副标题 17 → 16，以适配新名字长度并过文字边界校验）、`assets/logo.png` 按同工艺重新渲染；⑤ 全局注册表、全局规则与技能文档、9 个子项目仓库的负责项目名引用、兄弟 agent README、xhqing 主页名册同步更新（各自仓库内提交）。
+- **回归检查**：① 人格名 `Atlas` 一字未动——README「Atlas 是谁 / Who is Atlas」身份段、AGENTS.md「你是谁」角色段全部保留，只改项目名；② 历史 CHANGELOG 条目中的旧项目名保留不改写（历史事实）；③ 版本号不动（纯改名杂事，不触发 bump / 发版）；④ `assets/logo.svg` 过 `icon-design` 的文字边界硬校验（PASS）；⑤ 子项目清单与在手项目内容未改动。
+
 ### 变更（子项目 worktree 目录命名：必须以子项目名开头，2026-11-09）
 
 - **为什么改**：用户发现 `~/Developer/FullStackEngineerAgent-turn-diff` 这种目录名看不出归属——它实际是 FullStackEngineerAgent 主仓库的分支，名字却像 turn-diff 子项目的 worktree。用户原话：「子项目的 worktree 名字禁止使用『agent 项目或者其它项目名字 + 子项目名字』的命名方式，这样我看不出来到底是哪一个项目的 worktree」。

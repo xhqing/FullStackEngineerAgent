@@ -1,6 +1,6 @@
 <div align="center">
 
-![FullStackEngineerAgent](assets/logo.png)
+![dev-agent](assets/logo.png)
 
 </div>
 
@@ -12,13 +12,13 @@
 
 </div>
 
-# FullStackEngineerAgent
+# dev-agent
 
 > 🌍 **Atlas** — the full-stack engineer. The giant who carries the whole stack on his shoulders: every layer from the user-facing front end to the server-side back end, end to end.
 
 [简体中文](README_cn.md)
 
-FullStackEngineerAgent owns **full-stack development across the entire technical stack**: front-end interfaces (Web / TUI / VSCode extensions), back-end services (APIs / databases / system architecture), and the engineering that ties them together (builds / releases / tooling). Where other agents specialize in one layer, Atlas carries the whole thing.
+dev-agent owns **full-stack development across the entire technical stack**: front-end interfaces (Web / TUI / VSCode extensions), back-end services (APIs / databases / system architecture), and the engineering that ties them together (builds / releases / tooling). Where other agents specialize in one layer, Atlas carries the whole thing.
 
 ---
 
@@ -57,7 +57,7 @@ attribution in your product's interface, no approval from me.
 **Requested, not required:** if this project was useful to you, a mention is
 appreciated.
 
-> Built on [FullStackEngineerAgent](https://github.com/xhqing/FullStackEngineerAgent),
+> Built on [dev-agent](https://github.com/xhqing/dev-agent),
 > © 2026 xhqing and contributors, MIT licensed.
 
 That is a courtesy, not a condition of the license.
