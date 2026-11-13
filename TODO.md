@@ -28,10 +28,3 @@
   **背景**：Worker 会话只加载**自己子项目**的 `.pi/APPEND_SYSTEM.md`（pi 不向上继承项目配置），而 `dev-agent` 的 `AGENTS.md` 只在 Leader 会话里加载。所以「测试只读 + 可运行」「碰到测试问题终止上报」这两条如果不写进子项目，Worker 根本看不到，规则就空转——它会照常顺手改测试来适配实现。
   **要做什么**：给 8 个活跃子项目（ghostty-launcher、pi-harness、ghostty、cmux、turn-diff、codef、mp4-player、XPilot）的 `.pi/APPEND_SYSTEM.md` 各加一节，写清三件事：① 测试文件（测试目录、`*.test.*` / `*.spec.*` / `test_*.py` / `conftest.py` 等）对 Worker **只读 + 可运行**，新建 / 修改 / 删除 / 移动一律禁止；② 碰到测试跑不通或断言与 Issue 预期不符 → 终止开发、上报 Leader（`Atlas`）或用户裁决，不得自行改测试迁就实现；③ 测试的写入权在 Leader 出题这一步（带 `# TEST_CASES_WRITE_OK`），Worker 不得自行加标记。
   **边界**：逐子项目建 worktree + PR；文案按各项目已有风格写，不复制整段 dev-agent 规则。
-
-## 🟡 黄色紧急度
-
-- [ ] **T3** 清理 Hopper 遗留的 `cases/` 存量并给 TestEngineerAgent 仓库收尾（记录：2026-11-13 15:44）
-  **背景**：原 Hopper 的 T3 交接过来。`~/Developer/TestEngineerAgent/cases/zcode-cli/pending/` 下还压着两组未完成需求（`custom-env-rename`、`model-picker-env-prefix`，各含 `requirement.md` + 一份 `.test.ts`），而 zcode-cli 项目已于 2026-10-14 取消——这两组需求不再做。各子项目的 `test-cases/` 旧目录已核查为 0 个（无需迁移）。
-  **要做什么**：① 确认两组旧需求不再做（zcode-cli 已取消即定案），删掉本项目 `cases/` 目录；② TestEngineerAgent 仓库加退役说明（双语 README 顶部一句「已于 2026-11-13 从团队除名，测试职责并入 dev-agent，仓库保留为存档」+ `AGENTS.md` 同口径 + CHANGELOG 一条），避免公开读者误以为它还在服务团队；③ 该仓库 `TODO.md` 的活跃条目全部归档（标「已完成」或「已转移至 dev-agent」）。
-  **边界**：TestEngineerAgent 的改动走它自己的仓库 PR；归档条目正文一字不改，只加状态标记。
