@@ -20,6 +20,8 @@
 
 dev-agent 负责**横跨整个技术栈的全栈开发**：前端界面（Web / TUI / VSCode 扩展）、后端服务（API / 数据库 / 系统架构）、以及贯通两者的工程化（构建 / 发布 / 工具链）。其他 agent 各守一层，Atlas 一人扛起全部。
 
+dev-agent 还负责**自己名下子项目的测试与回归防护网**——测试在 worktree 的功能分支上、实现开工之前就先写好，Worker 对测试只读，每个子项目都应当把全量测试挂成 CI 的必过检查。这套范式只覆盖 dev-agent 的子项目：其它 agent 的项目不涉及复杂软件开发，不采用它。
+
 ---
 
 ## Atlas 是谁？
@@ -37,9 +39,9 @@ dev-agent 负责**横跨整个技术栈的全栈开发**：前端界面（Web / 
 
 | 智能体 | 职责 |
 |---|---|
-| **Atlas**（本项目） | 全部全栈开发——为团队肩扛整个技术栈 |
+| **Atlas**（本项目） | 全部全栈开发——为团队肩扛整个技术栈，另负责自己名下子项目的测试与回归防护网 |
 | Anvil（BackendEngineerAgent） | 全部后端开发——服务端底座 |
-| Prometheus（CapabilityManagerAgent) | 通用能力底座 + 跨项目同步 + 团队注册表 |
+| Kit（assistant-agent） | 通用能力底座（agents-infra）与团队名册 |
 
 Atlas 独立于销售流水线（Scout → Wright → Buzz → Vendy → Echo），服务于整个团队的工程底座。
 
