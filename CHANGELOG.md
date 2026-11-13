@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### 变更（测试定义权并入本项目：Hopper 从团队除名，2026-11-13）
+
+- **为什么改**：用户 2026-11-13 决定把 Hopper（TestEngineerAgent）从团队除名，理由是开发工作流已经变成「Leader 给 Worker 出题」——由本项目在子项目 worktree 里先行写出测试、Worker 全程不改测试，就能达成同样的测试开发分离效果，独立的测试 agent 不再必要。同时明确：**只有 dev-agent 的子项目需要严格的测试开发分离范式与回归防护网**，其它 agent 的项目不涉及复杂软件开发，不需要这套范式。
+- **改了什么**：① `AGENTS.md` 新增「测试与回归防护网」节——适用范围只覆盖本项目子项目；出题动线六条（时机固定在实现开工前 / 只写对外可观察行为 / 先红后绿 / 本地 commit 锁定 / Worker 只读可运行 / 必须挂 CI required check）；② 新建 `TODO.md`，承接 Hopper 交接的未完成待办（T1 防护网缺口、T2 子项目硬约束落地）与遗留清理（T3）；Hopper 其余 8 条在交接时已逐条核实闭环（Issue 全 CLOSED、代码已在 main）；③ 双语 README 的职责段与团队位置表同步。
+- **回归检查**：① Leader / Worker 分工、worktree 命名、git 纪律等既有规则一字未动；② 新增测试约束只写在 `AGENTS.md`（只对 Leader 会话生效），Worker 侧约束按 `TODO.md` 的 T2 另行写进各子项目 `.pi/APPEND_SYSTEM.md`，不在本次范围；③ 版本号不动（文档与规则类改动，不触发 bump / 发版）；④ 中英双语 README 同轮同步。
+
 ### 变更（项目更名 FullStackEngineerAgent → dev-agent，2026-11-10）
 
 - **为什么改**：用户要求把本项目名称改为 `dev-agent`，并同步全团队所有关联内容。团队 Agent 项目命名规则是「一律 `<职责>-agent` 全小写、连字符」（本 Agent 职责为全栈开发 → `dev-agent`），旧名 `FullStackEngineerAgent` 是帕斯卡式长名，与规则不符；`Atlas` 是人格名（人名风格），与项目名属两个层面，保持不变。
